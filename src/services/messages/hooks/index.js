@@ -1,5 +1,7 @@
 'use strict';
 
+const createdAt = require('./createdAt');
+
 const process = require('./process');
 
 const globalHooks = require('../../../hooks');
@@ -19,7 +21,7 @@ exports.before = {
   ],
   find: [],
   get: [],
-  create: [process()],
+  create: [process(), createdAt()],
   update: [hooks.remove('sentBy')],
   patch: [hooks.remove('sentBy')],
   remove: []
